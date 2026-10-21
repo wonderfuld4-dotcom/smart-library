@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Library</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <a href="#" class="logo">📚 Smart<span>Library</span></a>
+    <p class="side-label">MAIN MENU</p>
+    <button class="nav-item active" data-page="dashboard">▦ Dashboard</button>
+    <button class="nav-item" data-page="books">▤ All Books</button>
+    <button class="nav-item" data-page="add">＋ Add a Book</button>
+    <div class="sidebar-bottom">Your knowledge space ✨</div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="muted">WELCOME BACK 👋</p>
+        <h2>Library Dashboard</h2>
+      </div>
+      <div class="avatar">A</div>
+    </header>
+
+    <section id="dashboard" class="page">
+      <div class="hero">
+        <p>YOUR LIBRARY AT A GLANCE</p>
+        <h1>A little more knowledge,<br><span>every single day.</span></h1>
+        <p class="hero-text">Organize your collection and discover your next great read.</p>
+        <button class="primary-btn" data-go="books">Explore Books →</button>
+      </div>
+
+      <h2 class="section-title">Your Library, in Numbers</h2>
+
+      <div class="stats">
+        <article class="stat-card">
+          <div class="stat-icon purple">▤</div>
+          <p>Total Books</p>
+          <h2 id="totalCount">4</h2>
+          <small>Books in your collection</small>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon green">✓</div>
+          <p>Available</p>
+          <h2 id="availableCount">3</h2>
+          <small>Ready to be borrowed</small>
+        </article>
+
+        <article class="stat-card">
+          <div class="stat-icon orange">↗</div>
+          <p>Borrowed</p>
+          <h2 id="borrowedCount">1</h2>
+          <small>Currently checked out</small>
+        </article>
+      </div>
+
+      <div class="section-heading">
+        <h2>Recently Added</h2>
+        <button class="text-btn" data-go="books">View All →</button>
+      </div>
+      <div id="recentBooks" class="book-grid"></div>
+    </section>
+
+    <section id="books" class="page hidden">
+      <div class="section-heading page-heading">
+        <div>
+          <p class="eyebrow">THE COLLECTION</p>
+          <h1>Library Books</h1>
+          <p class="muted">Browse, search and manage your collection.</p>
+        </div>
+        <button class="primary-btn" data-go="add">＋ Add a Book</button>
+      </div>
+
+      <input id="searchInput" class="search" type="search"
+             placeholder="Search by title, author, or genre...">
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>BOOK TITLE</th>
+              <th>AUTHOR</th>
+              <th>GENRE</th>
+              <th>YEAR</th>
+              <th>STATUS</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody id="booksTable"></tbody>
+        </table>
+      </div>
+      <p id="bookCount" class="muted count-text"></p>
+    </section>
+
+    <section id="add" class="page hidden">
+      <div class="form-layout">
+        <div class="form-intro">
+          <p class="eyebrow">GROW YOUR COLLECTION</p>
+          <h1>Every great read<br>starts <span>somewhere.</span></h1>
+          <p class="muted">Add a new book and make it easier for readers to discover their next favorite.</p>
+          <div class="decoration">📚</div>
+        </div>
+
+        <form id="bookForm" class="form-card">
+          <p class="eyebrow">BOOK DETAILS</p>
+          <h2>Add a New Book</h2>
+          <p class="muted">Fill in the details below.</p>
+
+          <label for="title">Book Title *</label>
+          <input id="title" name="title" required placeholder="e.g. The Midnight Library">
+
+          <label for="author">Author *</label>
+          <input id="author" name="author" required placeholder="e.g. Matt Haig">
+
+          <div class="form-row">
+            <div>
+              <label for="genre">Genre</label>
+              <select id="genre" name="genre">
+                <option>Programming</option>
+                <option>Fiction</option>
+                <option>Science</option>
+                <option>Fantasy</option>
+                <option>History</option>
+                <option>Self Help</option>
+                <option>Education</option>
+              </select>
+            </div>
+            <div>
+              <label for="year">Publication Year</label>
+              <input id="year" name="year" type="number" min="0" max="2100" placeholder="2025">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="reset" class="secondary-btn">Clear</button>
+            <button type="submit" class="primary-btn">Save Book →</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>© <span id="currentYear"></span> Smart Library · Made for readers.</footer>
+  </main>
+
+</body>
+</html>
